@@ -1,0 +1,108 @@
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Generated Schema",
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "middle_name": {
+      "type": "string"
+    },
+    "surname": {
+      "type": "string"
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "property_name": {
+          "type": "string"
+        },
+        "street_number": {
+          "type": "string"
+        },
+        "apartment": {
+          "type": "string"
+        },
+        "street_name": {
+          "type": "string"
+        },
+        "district": {
+          "type": "string"
+        },
+        "post_town": {
+          "type": "string"
+        },
+        "postcode": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "street_number",
+        "street_name",
+        "post_town",
+        "postcode"
+      ]
+    },
+    "date_of_birth": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "deceased_flag": {
+      "type": "integer"
+    },
+    "account_status": {
+      "type": "string"
+    },
+    "interest_1": {
+      "type": "string"
+    },
+    "interest_1_flag": {
+      "type": "integer"
+    },
+    "interest_2": {
+      "type": "string"
+    },
+    "interest_2_flag": {
+      "type": "integer"
+    },
+    "interest_3": {
+      "type": "string"
+    },
+    "interest_3_flag": {
+      "type": "integer"
+    },
+    "interest_4": {
+      "type": "string"
+    },
+    "interest_4_flag": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "account_id",
+    "first_name",
+    "surname",
+    "address",
+    "date_of_birth",
+    "email"
+  ]
+}
