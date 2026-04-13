@@ -1,2 +1,35 @@
-SELECT raw_data.account_id 
+SELECT 
+	raw_data.account_id::UUID,
+	raw_data.first_name::VARCHAR,
+	raw_data.middle_name::VARCHAR,
+	raw_data.surname::VARCHAR,
+	md5(
+		raw_data.address.street_number
+		||raw_data.address.street_name
+		||raw_data.address.post_town
+		||raw_data.address.postcode
+	) AS property_id,
+	raw_data.address.property_name::VARCHAR,
+	raw_data.address.street_number::INTEGER,
+	raw_data.address.apartment::VARCHAR,
+	raw_data.address.street_name::VARCHAR,
+	raw_data.address.district::VARCHAR,
+	raw_data.address.post_town::VARCHAR,
+	raw_data.address.postcode::VARCHAR,
+	raw_data.address.county::VARCHAR,
+	raw_data.address.country::VARCHAR,
+	raw_data.date_of_birth::DATE,
+	raw_data.phone_number::VARCHAR,
+	raw_data.email::VARCHAR,
+	raw_data.gender::VARCHAR,
+	raw_data.deceased_flag::BOOLEAN,
+	raw_data.account_status::VARCHAR,
+	raw_data.interest_1::VARCHAR,
+	raw_data.interest_1_flag::BOOLEAN,
+	raw_data.interest_2::VARCHAR,
+	raw_data.interest_2_flag::BOOLEAN,
+	raw_data.interest_3::VARCHAR,
+	raw_data.interest_3_flag::BOOLEAN,
+	raw_data.interest_4::VARCHAR,
+	raw_data.interest_4_flag::BOOLEAN
 FROM {{ source('raw_data', 'raw_customers') }} AS customers
