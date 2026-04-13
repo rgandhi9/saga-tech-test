@@ -1,2 +1,4 @@
 boto3
 dotenv
+dbt-core
+dbt-duckdb
