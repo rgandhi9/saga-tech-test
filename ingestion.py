@@ -27,7 +27,7 @@ content = response['Body'].read().decode('utf-8')
 # DuckDB Connection
 con = duckdb.connect("./saga_dbt_project/dev.duckdb")
 
-con.sql("CREATE TABLE IF NOT EXISTS raw_customers (raw_data JSON, ingested_at TIMESTAMP DEFAULT now(), source_file TEXT)")
+con.sql("CREATE TABLE IF NOT EXISTS raw_customers (raw_data JSON, ingested_at TIMESTAMP DEFAULT now(), source_file VARCHAR)")
 
 # Insert data
 con.execute("INSERT INTO raw_customers (raw_data, source_file) VALUES (?, ?)", [content, file_name])
