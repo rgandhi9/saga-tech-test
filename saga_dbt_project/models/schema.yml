@@ -31,3 +31,21 @@ models:
       - name: postcode
         data_tests:
           - not_null
+
+  - name: dim_customers
+    columns:
+      - name: account_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_address
+    columns:
+      - name: property_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: fct_interests
+    columns:
+      - name: uuid

@@ -3,7 +3,7 @@ WITH interests_unpivot AS (
         account_id,
         interest_name,
         is_interested
-    FROM {{ ref('std_customers') }}
+    FROM "dev"."main"."std_customers"
     UNPIVOT (
         (interest_name, is_interested)
         FOR interest_group IN (
