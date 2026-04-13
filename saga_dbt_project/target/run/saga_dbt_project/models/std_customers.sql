@@ -1,5 +1,8 @@
-SELECT 
-	raw_data.account_id::UUID AS account_id,
+
+  
+  create view "dev"."main"."std_customers__dbt_tmp" as (
+    SELECT 
+	raw_data.account_id::UUID AS account_id, --PK
 	raw_data.first_name::VARCHAR AS first_name,
 	raw_data.middle_name::VARCHAR AS middle_name,
 	raw_data.surname::VARCHAR AS surname,
@@ -8,7 +11,7 @@ SELECT
 		||raw_data.address.street_name
 		||raw_data.address.post_town
 		||raw_data.address.postcode
-	) AS property_id,
+	) AS property_id, --FK
 	raw_data.address.property_name::VARCHAR AS property_name,
 	raw_data.address.street_number::INTEGER AS street_number,
 	raw_data.address.apartment::VARCHAR AS apartment,
@@ -32,4 +35,5 @@ SELECT
 	raw_data.interest_3_flag::BOOLEAN AS interest_3_flag,
 	raw_data.interest_4::VARCHAR AS interest_4,
 	raw_data.interest_4_flag::BOOLEAN AS interest_4_flag
-FROM {{ source('raw_data', 'raw_customers') }} AS customers
+FROM "dev"."main"."raw_customers"
+  );
